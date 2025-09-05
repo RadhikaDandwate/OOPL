@@ -55,36 +55,57 @@ Complex operator+(Complex& c1, Complex& c2) {
 
 int main() {
     float r, i;
-    char ch;
-
-    cout << "Enter first complex number:\n";
-    cout << "Real: "; cin >> r;
-    cout << "Imaginary: "; cin >> i >> ch;
+    cout << "Enter first complex number (real and imaginary): ";
+    cin >> r >> i;
     Complex c1(r, i);
 
-    cout << "Enter second complex number:\n";
-    cout << "Real: "; cin >> r;
-    cout << "Imaginary: "; cin >> i >> ch;
+    cout << "Enter second complex number (real and imaginary): ";
+    cin >> r >> i;
     Complex c2(r, i);
 
-    cout << "\nFirst Complex Number: ";
-    c1.display();
-    cout << "Second Complex Number: ";
-    c2.display();
-
     Complex c3;
+    int choice;
 
-    c3 = c1 + c2;
-    cout << "\nAddition: "; c3.display();
+    do {
+        cout << "\nComplex Number Operations\n";
+        cout << "1. Addition\n";
+        cout << "2. Subtraction\n";
+        cout << "3. Multiplication\n";
+        cout << "4. Division\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
 
-    c3 = c1 - c2;
-    cout << "Subtraction: "; c3.display();
+        switch (choice) {
+            case 1:
+                c3 = c1 + c2;
+                cout << "Result: "; c3.display();
+                break;
 
-    c3 = c1 * c2;
-    cout << "Multiplication: "; c3.display();
+            case 2:
+                c3 = c1 - c2;
+                cout << "Result: "; c3.display();
+                break;
 
-    c3 = c1 / c2;
-    cout << "Division: "; c3.display();
+            case 3:
+                c3 = c1 * c2;
+                cout << "Result: "; c3.display();
+                break;
+
+            case 4:
+                c3 = c1 / c2;
+                cout << "Result: "; c3.display();
+                break;
+
+            case 5:
+                cout << "Exiting program...\n";
+                break;
+
+            default:
+                cout << "Invalid choice!\n";
+        }
+    } while (choice != 5);
 
     return 0;
 }
+
